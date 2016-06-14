@@ -1,5 +1,6 @@
 import csv
 import rpy2.robjects as ro
+import pandas as pd
 
 out = open("Crimes-2015.csv","rb")
 data = csv.reader(out)
@@ -21,6 +22,15 @@ print dataCrimeLocation
 
 #Criminal type
 dataCrimeType= [[row[5]] for row in data]
+
+#writing data in file
+out= open("new_data.csv","wb")
+output= csv.writer(out)
+for row in new_data
+    output.writerow(row)
+
+    out.close()
+
 
 #criminal Time
 dataCrimeTime= [[row[2]] for row in data]
