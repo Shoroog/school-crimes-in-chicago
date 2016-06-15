@@ -12,7 +12,7 @@ out.close()
 out2 = open("schools.csv","rb")
 data2 = csv.reader(out2)
 data2 = [row for row in data2]
-out.close()
+out2.close()
 # define reg x then define arrays
 
 
@@ -24,16 +24,6 @@ dataCrimeLocation= [[row[3]] for row in data]
 #address location for schools
 # define it as an array
 dataSchoolLocation= [[row[2]]for row in data2]
-
-#print (re.findall(r'\d{1,5}', 'dhjg543 main st.lkfh'))
-if (dataCrimeLocation == dataSchoolLocation):
-
-    print ('There are some location matches..', dataCrimeLocation)
-else:
-    print('no matches..')
-
-#Criminal type
-dataCrimeType= [[row[5]] for row in data]
 
 #writing crime location in file
 outFile= open("crime_location.csv","wb")
@@ -52,7 +42,50 @@ for row in dataSchoolLocation:
 outFile2.close()
 
 
+
+# read crimes.csv
+out3 = open("crime_location.csv","rb")
+data3 = csv.reader(out3)
+data3 = [row for row in data3]
+out3.close()
+
+# read school.csv
+out4 = open("school_location.csv","rb")
+data4 = csv.reader(out4)
+data4 = [row for row in data4]
+out4.close()
+
+dataCrimeLocation2= [[row[0]] for row in data3]
+dataSchoolLocation2= [[row[0]]for row in data4]
+
+#print (re.findall(r'\d{1,5}', 'dhjg543 main st.lkfh'))
+if (dataCrimeLocation2 == dataSchoolLocation2):
+
+    print ('There are some location matches..', dataschoolLocation2)
+else:
+    print('no matches..')
+
+
+
+
+
+#Criminal type
+dataCrimeType= [[row[5]] for row in data]
+#Criminal time type and location
+dataCrimeLocationTimeType= [[row[2],row[3],row[5]] for row in data]
 #criminal Time
 dataCrimeTime= [[row[2]] for row in data]
+
+#writing crime location in file
+outFile3= open("crime_time_location_type.csv","wb")
+output3= csv.writer(outFile3)
+for row in dataCrimeLocationTimeType:
+  output3.writerow(row)
+
+outFile3.close()
+
+
+
+
 
 
