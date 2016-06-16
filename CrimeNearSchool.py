@@ -1,6 +1,7 @@
 import csv
 import pandas as pd
 import re
+from array import array
 
 # read crimes.csv
 out = open("Crimes-2015.csv","rb")
@@ -24,6 +25,15 @@ dataCrimeLocation= [[row[3]] for row in data]
 #address location for schools
 # define it as an array
 dataSchoolLocation= [[row[2]]for row in data2]
+
+#readlines = dataCrimeLocation.readlines()
+for line in dataCrimeLocation:
+
+    str = line.split()
+   # str[1:]
+    s = " ".join(str)
+
+print str
 
 #writing crime location in file
 outFile= open("crime_location.csv","wb")
@@ -58,12 +68,15 @@ out4.close()
 dataCrimeLocation2= [[row[0]] for row in data3]
 dataSchoolLocation2= [[row[0]]for row in data4]
 
-#print (re.findall(r'\d{1,5}', 'dhjg543 main st.lkfh'))
-if (dataCrimeLocation2 == dataSchoolLocation2):
 
-    print ('There are some location matches..', dataschoolLocation2)
-else:
-    print('no matches..')
+variable= []
+
+#print (re.findall(r'\d{1,5}', 'dhjg543 main st.lkfh'))
+#if (dataCrimeLocation2 == dataSchoolLocation2):
+
+ #   print ('There are some location matches..', dataSchoolLocation2)
+#else:
+  #  print('no matches..')
 
 
 
@@ -84,8 +97,16 @@ for row in dataCrimeLocationTimeType:
 
 outFile3.close()
 
+s= "Shoroog Tala Alhuthaifi"
+s.split()
+keywords = ["Tala","Lama"]
 
+words = s.split()
+for w in words:
+    if w in keywords:
+       print("matches")
 
+#use regex and match
 
 
 
