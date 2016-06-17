@@ -10,14 +10,15 @@ I am interested in the nubmer of crimes near by schools in Chicago city. Type of
 ####The data:
 I import data from  https://data.cityofchicago.org for study purpose
 
-1- schools   https://data.cityofchicago.org/Education/Schools/kqmn-byj8
-2- Crimes    https://data.cityofchicago.org/Public-Safety/Crimes-2015/vwwp-7yr9
+1. schools   https://data.cityofchicago.org/Education/Schools/kqmn-byj8
+2. Crimes    https://data.cityofchicago.org/Public-Safety/Crimes-2015/vwwp-7yr9
 
 ####Results:
-1-
-2-
-3-
+1.
+2.
+3.
 
+- - - -
 
 
 
