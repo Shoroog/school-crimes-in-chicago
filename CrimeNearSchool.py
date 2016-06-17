@@ -17,23 +17,25 @@ out2.close()
 # define reg x then define arrays
 
 
+#address location for schools
+# define it as an array
+dataSchoolLocation= [[row[2]]for row in data2]
+
+
 #address location for crimes
 # define it as an array
 dataCrimeLocation= [[row[3]] for row in data]
 
 
-#address location for schools
-# define it as an array
-dataSchoolLocation= [[row[2]]for row in data2]
-
 #readlines = dataCrimeLocation.readlines()
-for line in dataCrimeLocation:
+readLines = dataCrimeLocation.readlines()
+for line in readLines:
 
     str = line.split()
    # str[1:]
-    s = " ".join(str)
+   # s = " ".join(str)
 
-print str
+print str[1:]
 
 #writing crime location in file
 outFile= open("crime_location.csv","wb")
