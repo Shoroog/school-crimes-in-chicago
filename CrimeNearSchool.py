@@ -2,6 +2,8 @@ import csv
 import pandas as pd
 import re
 from array import array
+import collections
+import heapq
 
 # read crimes.csv
 out = open("Crimes-2015.csv","rb")
@@ -25,17 +27,28 @@ dataSchoolLocation= [[row[2]]for row in data2]
 #address location for crimes
 # define it as an array
 dataCrimeLocation= [[row[3]] for row in data]
+for line in dataCrimeLocation:
+    no_digits = []
+    # Iterate through the string, adding non-numbers to the no_digits list
+    for i in line:
+        if not i.isdigit():
+            no_digits.append(i)
+
+    # Now join all elements of the list with '',
+    # which puts all of the characters together.
+    result = ''.join(no_digits)
+ #   print result
 
 
-#readlines = dataCrimeLocation.readlines()
-readLines = dataCrimeLocation.readlines()
-for line in readLines:
 
-    str = line.split()
+  # str = [line.split() for line in dataCrimeLocation]
    # str[1:]
    # s = " ".join(str)
 
-print str[1:]
+ #str[1:]
+
+'''---------------------Function--------------------'''
+#Counting the "string" occurrence in a file
 
 #writing crime location in file
 outFile= open("crime_location.csv","wb")
@@ -80,12 +93,27 @@ variable= []
 #else:
   #  print('no matches..')
 
-
-
-
-
 #Criminal type
 dataCrimeType= [[row[5]] for row in data]
+#writing school location in file
+outFile4= open("crime_type.csv","wb")
+output4= csv.writer(outFile4)
+for row in dataCrimeType:
+  output4.writerow(row)
+
+outFile4.close()
+
+string = "WEAPONS VIOLATION"
+count = 0
+for line in dataCrimeType:
+    if string in line:
+        last_line = line
+        count += 1
+print '{0} occurrences of this Crime in 2015:\n{1}'.format(count, last_line)
+        #we are searching "foo" string in file "result_file.txt"
+
+
+
 #Criminal time type and location
 dataCrimeLocationTimeType= [[row[2],row[3],row[5]] for row in data]
 #criminal Time
@@ -98,7 +126,7 @@ for row in dataCrimeLocationTimeType:
   output3.writerow(row)
 
 outFile3.close()
-
+'''
 s= "Shoroog Tala Alhuthaifi"
 s.split()
 keywords = ["Tala","Lama"]
@@ -106,9 +134,9 @@ keywords = ["Tala","Lama"]
 words = s.split()
 for w in words:
     if w in keywords:
-       print("matches")
+    print("matches")
 
 #use regex and match
 
-
+'''
 
