@@ -1,9 +1,8 @@
 import csv
-import pandas as pd
-import re
+import os
 from array import array
 import collections
-import heapq
+from collections import Counter
 
 # read crimes.csv
 out = open("Crimes-2015.csv","rb")
@@ -27,29 +26,6 @@ dataSchoolLocation= [[row[2]]for row in data2]
 #address location for crimes
 # define it as an array
 dataCrimeLocation= [[row[3]] for row in data]
-for line in dataCrimeLocation:
-    no_digits = []
-    # Iterate through the string, adding non-numbers to the no_digits list
-    for i in line:
-        if not i.isdigit():
-            no_digits.append(i)
-
-    # Now join all elements of the list with '',
-    # which puts all of the characters together.
-    result = ''.join(no_digits)
- #   print result
-
-
-
-  # str = [line.split() for line in dataCrimeLocation]
-   # str[1:]
-   # s = " ".join(str)
-
- #str[1:]
-
-'''---------------------Function--------------------'''
-#Counting the "string" occurrence in a file
-
 #writing crime location in file
 outFile= open("crime_location.csv","wb")
 output= csv.writer(outFile)
@@ -83,17 +59,6 @@ out4.close()
 dataCrimeLocation2= [[row[0]] for row in data3]
 dataSchoolLocation2= [[row[0]]for row in data4]
 
-
-variable= []
-
-#print (re.findall(r'\d{1,5}', 'dhjg543 main st.lkfh'))
-#if (dataCrimeLocation2 == dataSchoolLocation2):
-
- #   print ('There are some location matches..', dataSchoolLocation2)
-#else:
-  #  print('no matches..')
-
-#Criminal type
 dataCrimeType= [[row[5]] for row in data]
 #writing school location in file
 outFile4= open("crime_type.csv","wb")
@@ -102,18 +67,6 @@ for row in dataCrimeType:
   output4.writerow(row)
 
 outFile4.close()
-
-string = "WEAPONS VIOLATION"
-count = 0
-for line in dataCrimeType:
-    if string in line:
-        last_line = line
-        count += 1
-print '{0} occurrences of this Crime in 2015:\n{1}'.format(count, last_line)
-        #we are searching "foo" string in file "result_file.txt"
-
-
-
 #Criminal time type and location
 dataCrimeLocationTimeType= [[row[2],row[3],row[5]] for row in data]
 #criminal Time
@@ -126,17 +79,48 @@ for row in dataCrimeLocationTimeType:
   output3.writerow(row)
 
 outFile3.close()
-'''
-s= "Shoroog Tala Alhuthaifi"
-s.split()
-keywords = ["Tala","Lama"]
 
-words = s.split()
-for w in words:
-    if w in keywords:
-    print("matches")
 
-#use regex and match
+def main():
 
-'''
+    crimetype()
+    timeCrime()
 
+
+def crimetype():
+
+    os.system('clear')
+    print('The most common crimes happened in Chicago city in 2015')
+    crimes = []
+    with open('crime_type.csv') as f:
+        reader = csv.reader(f)
+        for row in reader:
+          crimes.append(row[0])
+    crimeCounts = Counter(crimes)
+    x = input('Please enter the first top results by entering the amount or 0 for all data: ')
+    if x == 0:
+        for types, count in crimeCounts.most_common():
+            print ('%s: %d times.' % (types, count))
+    else:
+        for types, count in crimeCounts.most_common(x):
+            print ('%s: %d times.' % (types, count))
+    os.system('clear')
+
+
+def timeCrime():
+
+    os.system('clear')
+    print('The most common crimes time and dates that happened in Chicago city in 2015')
+    time = []
+    with open('Crimes-2015.csv') as f:
+        reader = csv.reader(f)
+        for row in reader:
+           time.append(row[2])
+    timeCounts = Counter(time)
+
+    for types, count in timeCounts.most_common():
+            print ('%s: %d times.' % (types, count))
+
+    os.system('clear')
+
+main()
