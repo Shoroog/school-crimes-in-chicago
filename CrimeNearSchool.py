@@ -3,8 +3,7 @@ import os
 from array import array
 import collections
 from collections import Counter
-from datetime import datetime
-from collections import defaultdict
+
 
 # read crimes.csv
 out = open("Crimes-2015.csv","rb")
