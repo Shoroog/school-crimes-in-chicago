@@ -15,11 +15,14 @@ I import data from  https://data.cityofchicago.org for study purpose
 
 ####Results:
 A. Couldn't figure out how to match 2 columns between 2 different csv files
+
 B. The top 3 most common crimes happened in Chicago city in 2015
    1. THEFT: 57219 times.
    2. BATTERY: 48889 times.
    3. CRIMINAL DAMAGE: 28663 times.
+   
 C. The top 4 most common crimes happened in these districts 
+
    1. 011: 19244 times.
    2. 008: 17164 times.
    3. 006: 15929 times.
