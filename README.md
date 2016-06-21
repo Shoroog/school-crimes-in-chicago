@@ -20,6 +20,7 @@ B. The top 3 most common crimes happened in Chicago city in 2015
    1. THEFT: 57219 times.
    2. BATTERY: 48889 times.
    3. CRIMINAL DAMAGE: 28663 times.
+
 - - - - 
 C. The top 4 most common crimes happened in these districts 
 
