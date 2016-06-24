@@ -5,7 +5,7 @@ Assignment for Comp 312 (open source computing) class..
 - - - - 
 
 ####Introdution: 
-I am interested in the nubmer of crimes near by schools in Chicago city. Type of crimes that mostly happened in this specific area. Also, time that has more crimes..
+I am interested in the nubmer of crimes near by schools in Chicago city (Couldn't figure out how to solve this). Type of crimes that mostly happened in this specific area. Also, the districts that crimes happend in..
 
 ####The data:
 I import data from  https://data.cityofchicago.org for study purpose
@@ -22,7 +22,7 @@ B. The top 3 most common crimes happened in Chicago city in 2015
    3. CRIMINAL DAMAGE: 28663 times.
 
 - - - - 
-C. The top 4 most common crimes happened in these districts 
+C. The top 4 most common districts that crimes happened in 
 
    1. 011: 19244 times.
    2. 008: 17164 times.
